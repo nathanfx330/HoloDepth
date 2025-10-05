@@ -2,6 +2,8 @@
 
 HoloDepth is a complete, from-scratch implementation of a Multi-Plane Image (MPI) training and viewing pipeline, inspired by the 2019 Google DeepView paper. This project was born out of the frustration of trying to adapt brittle academic code for a real production workflow. It is designed from the ground up to be robust, debuggable, and practical for a VFX artist.
 
+https://augmentedperception.github.io/deepview/
+
 The pipeline allows you to train a neural network to understand the 3D structure of a scene from a set of images and camera poses, and then generate an interactive, web-based 3D viewer from the result.
 
 ## Core Features
