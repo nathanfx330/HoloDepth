@@ -1,0 +1,28 @@
+# Conda environment configuration for the HoloDepth project.
+# To create this environment, run:
+# conda env create -f environment.yml
+#
+# To activate the environment, run:
+# conda activate holodepth
+
+name: holodepth
+channels:
+  - pytorch
+  - nvidia # For the CUDA toolkit
+  - conda-forge # For other packages
+dependencies:
+  # Core Python version
+  - python=3.9
+
+  # PyTorch and GPU support (specific versions for reproducibility)
+  - pytorch::pytorch=2.1.0
+  - pytorch::torchvision
+  - pytorch::pytorch-cuda=11.8 # Assumes CUDA 11.8; change if needed
+
+  # Core libraries
+  - conda-forge::numpy>=1.21
+  - conda-forge::pillow>=9.0
+  - conda-forge::tqdm>=4.60
+
+  # Pip is included for good measure
+  - pip
