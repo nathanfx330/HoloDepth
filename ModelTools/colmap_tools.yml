@@ -1,0 +1,32 @@
+# Conda environment for the HoloDepth COLMAP pre-processing tool.
+# This environment is isolated and contains only the necessary packages
+# to run the COLMAP pipeline and generate the models.json file.
+#
+# To create this environment, run from the project root:
+#   conda env create -f ModelTools/colmap_tools.yml
+#
+# To activate the environment, run:
+#   conda activate colmap_tools_env
+
+name: colmap_tools_env
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # 1. Base Python version
+  - python=3.9
+
+  # 2. Pip is required to install pycolmap-cuda
+  - pip
+
+  # 3. CRITICAL: Constrain NumPy to version 1.x to avoid ABI conflicts
+  #    that we discovered during debugging. Conda handles this dependency best.
+  - numpy<2
+
+  # 4. Pip-installed packages
+  - pip:
+      # The CUDA-enabled version of pycolmap.
+      # This will install the latest version compatible with the environment.
+      - pycolmap-cuda
